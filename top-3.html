@@ -1,0 +1,783 @@
+   <head>
+     <meta name="description" content="Sharper Odds on NFL, NBA, MLB, UFC, Premier League, F1 and more. Take advantage of 250/1 odds on Team USA this World Cup"/>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Top-3-->
+    <link rel="stylesheet" href="./top-3.css">
+    <script src="./top-3.js" defer></script>
+    <!--End of Top-3-->
+     <!-- Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+   </head>
+
+   <style>
+    @font-face { 
+      font-family: 'Akkordeon';
+
+      src:
+      url('https://cdn.betonline.ag/fonts/Akkordeon-Eight.woff2') format('woff2'),
+      url('https://cdn.betonline.ag/fonts/Akkordeon-Eight.woff') format('woff'),
+      url('https://cdn.betonline.ag/fonts/Akkordeon-Eight.ttf') format('truetype');
+
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    h1,
+    h2,
+    h3,
+    span,
+    button {
+      font-family: 'Akkordeon',  Open Sans, sans-serif !important;
+      letter-spacing: normal;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+      font-weight: 400;
+      font-family: Open Sans,sans-serif;
+    }
+    li {
+      margin: 25px 25px 0px 0px;
+      padding: 0 0 0 15px;
+      font-size:inherit;
+    }
+    ol, ul {
+      padding-left: 1rem;
+    }
+
+    section{
+      position:relative;
+    }
+    .display-desktop{display: block;}
+    .display-mobile{display: none;}
+
+    /* =========================================
+      BANNERS FULL WIDTH
+    ========================================= */
+
+    .full-banner img{
+      width:100%;
+      height:auto;
+      
+    }
+
+    .our-scrolling-ticker {
+      background-color:#ee3536;
+      padding:24px 0 28px 0;
+    }
+    .scrolling-ticker-box {
+      --gap:30px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      user-select:none;
+      gap:var(--gap);
+    }
+    .scrolling-content {
+      flex-shrink:0;
+      display:flex;
+      gap:var(--gap);
+      min-width:100%;
+      animation:scroll 80s 
+      linear infinite;
+    }
+    .scrolling-content 
+    span {
+      display:inline-block;
+      font-size:50px;
+      font-weight:400;
+      line-height:1.1em;
+      text-transform:uppercase;
+      color: #2d2e2c;
+    }
+    .scrolling-content 
+    span img {
+      width:100%;
+      max-width:45px;
+      margin-right: 30px;
+      margin-bottom: 10px;
+    }
+    @keyframes 
+    scroll {
+      from {
+        transform:translateX(0);
+      }
+      to {
+        transform:translateX(calc(-50%
+          - 
+          var(--gap)));
+      }
+    }
+
+    /* =========================================
+      VIDEO SECTION
+    ========================================= */
+
+    .video-section{
+      height:95%;
+      overflow:hidden;
+      font-family:'Akkordeon-Eight', sans-serif;
+      font-weight: 400;
+      letter-spacing: 5px;
+      border: #fff solid 40px;
+
+
+    }
+
+    .video-section video{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:1;
+    }
+
+    .video-overlay{
+      position:relative;
+      z-index:2;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.3);
+    }
+
+    .video-title-top{
+      position:absolute;
+      top:5px;
+      left:0px;
+      font-size:7rem;
+      font-weight:400;
+    }
+
+    .video-title-bottom{
+      position:absolute;
+      bottom:5px;
+      right:0px;
+      font-size:7rem;
+      font-weight:400;
+    }
+
+    /* =========================================
+      TABS SECTION
+    ========================================= */
+
+    .tabs-section{
+      min-height:700px;
+      background-size: contain;
+      background-position: right bottom;
+      transition:0.4s ease;
+      padding:100px 20px;
+      background-repeat: no-repeat;
+      background-color: #2d2e2c;
+    }
+
+    .tabs-content{
+      max-width:90%;
+      margin:0 auto;
+      text-align:left;
+    }
+
+    .tabs-content h2{
+      font-size:3rem;
+      letter-spacing: 1.5px;
+      margin-bottom:10px;
+      font-family:'Akkordeon-Eight', sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .custom-tabs{
+      display:flex;
+      justify-content:left;
+      gap:20px;
+      margin-bottom:40px;
+      flex-wrap:wrap;
+    }
+
+    .tab-btn{
+      background:none;
+      border:none;
+      padding:0;
+      cursor:pointer;
+      transition:0.3s ease;
+    }
+
+    .tab-btn img{
+      width:180px;
+      transition:0.3s ease;
+    }
+
+    .tab-pane{
+      display:none;
+    }
+
+    .tab-pane.active{
+      display:block;
+      text-transform: uppercase;
+    }
+    .tab-pane.active ul{
+      display:block;
+      max-width: 768px;
+    }
+
+
+
+    .tab-pane ul, li {
+      list-style-image: url('https://cdn-cms.betonline.ag/img/Rectangle_2_32e31a934f.png');
+    }
+
+    /* =========================================
+      RESPONSIVE
+    ========================================= */
+    @media(max-width:1366px){
+
+      .display-desktop{display: block;}
+      .display-mobile{display: none;}
+
+      .video-section{
+        height:85%;
+        overflow:hidden;
+        font-family:'Akkordeon-Eight', sans-serif;
+        font-weight: 400;
+        letter-spacing: 5px;
+        border: #fff solid 30px;
+      }
+      .video-title-top, .video-title-bottom{ font-size:4.8rem; }
+    }
+    @media(max-width:1024px){
+
+      .display-desktop{display: block;}
+      .display-mobile{display: none;}
+
+      .video-section{
+        height:65%;
+        overflow:hidden;
+        font-family:'Akkordeon-Eight', sans-serif;
+        font-weight: 400;
+        letter-spacing: 5px;
+        border: #fff solid 30px;
+      }
+      .video-title-top, .video-title-bottom{ font-size:4.5rem; }
+
+    }
+    
+    @media(max-width:768px){
+
+      .display-desktop{display: none;}
+      .display-mobile{display: block;}
+      
+      .our-scrolling-ticker {
+        background-color:#ee3536;
+        padding:24px 0 26px 0;
+      }
+
+      
+      .text-content{
+        padding:130px 15px;
+        text-align:center;
+        background-color: #f4f4f4;
+        color: #000;
+        
+      }
+      .text-content h2{
+        font-size:4.8rem;
+        line-height: 70px;
+      }
+      .text-content p{
+       font-size:1.1rem;
+       max-width:800px;
+       margin:auto;
+       line-height:1.4;
+       width: 100%;
+       
+     }
+
+     li {
+      margin: 15px 25px 0px 0px;
+      padding: 0 0 0 15px;
+      font-size:0.9rem;
+    }
+
+    .video-title-top,
+    .video-title-bottom{
+      font-size:4.5rem;
+    }
+
+    .video-title-top{
+      top:5px;
+      left:0px;
+    }
+
+    .video-title-bottom{
+      bottom:5px;
+      right:0px;
+    }
+
+    .video-section video{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:1;
+    }
+
+
+    .video-section{
+      height:65%;
+      overflow:hidden;
+      font-family:'Akkordeon-Eight', sans-serif;
+      font-weight: 400;
+      letter-spacing: 3px;
+      border: #fff solid 15px;
+    }
+
+
+    .tab-btn img{
+      width:79px;
+    }
+
+    .tabs-section {
+      min-height: 700px;
+      background-size: contain;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      transition: 0.4s ease;
+      padding: 100px 20px;
+      background-color: #2d2e2c;
+    }
+    .tabs-content h2{
+      font-size:2.2rem;
+      letter-spacing: 1.5px;
+      margin-bottom:10px;
+      font-family:'Akkordeon-Eight', sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .custom-tabs{
+      display:flex;
+      justify-content:left;
+      gap:5px;
+      margin-bottom:40px;
+      flex-wrap:wrap;
+    }
+
+
+  }
+
+</style>
+
+<!--section class="full-banner">
+    <a href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"><img src="https://cdn-cms.betonline.ag/img/worldcup2026_main_banner_94ac830f19.png" alt="" class="display-desktop"></a>
+    <a href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"><img src="https://cdn-cms.betonline.ag/img/worldcup2026_main_banner_mobile_0e7b7f67d4.png" alt="" class="display-mobile"></a>
+  </section-->
+  <section class="full-banner">
+    <a
+    id="wc2026_main_desktop"
+    class="track-banner"
+    href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"
+    data-name="world_cup_2026"
+    data-content="main_banner_desktop">
+
+    <img
+    src="https://cdn-cms.betonline.ag/img/worldcup2026_main_banner_94ac830f19.png"
+    alt="World Cup 2026"
+    class="display-desktop">
+
+  </a>
+
+  <a
+  id="wc2026_main_mobile"
+  class="track-banner"
+  href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"
+  data-name="world_cup_2026"
+  data-content="main_banner_mobile">
+
+  <img
+  src="https://cdn-cms.betonline.ag/img/worldcup2026_main_banner_mobile_0e7b7f67d4.png"
+  alt="World Cup 2026"
+  class="display-mobile">
+
+</a>
+</section>
+
+
+
+<section class="our-scrolling-ticker">
+  <div class="scrolling-ticker-box">
+    <div class="scrolling-content">
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+    </div>
+    <div class="scrolling-content">
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The gut feeling. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">   The upset. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">    The split.</span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The double down. </span>
+      <span><img src="https://cdn-cms.betonline.ag/img/logo_ticker_9df8a44e24.png" alt="">  The bonus round. </span>
+    </div>
+  </div>
+</section>
+
+
+  <section class="full-banner">
+    <a
+    id="team_usa_desktop"
+    class="track-banner"
+    href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"
+    data-name="team_usa"
+    data-content="hero_banner_desktop">
+
+    <img
+    src="https://cdn-cms.betonline.ag/img/BOL_260508_WC_Team_USA_Landing_Page_1440_x_800_30fec7a7f7.jpg"
+    alt="Team USA"
+    class="display-desktop">
+
+  </a>
+
+  <a
+  id="team_usa_mobile"
+  class="track-banner"
+  href="https://www.betonline.ag/sportsbook/world-cup-hub/fifa-world-cup-2026"
+  data-name="team_usa"
+  data-content="hero_banner_mobile">
+
+  <img
+  src="https://cdn-cms.betonline.ag/img/BOL_260508_WC_Team_USA_Landing_Page_428_x_800_e9e03985b6.jpg"
+  alt="Team USA"
+  class="display-mobile">
+
+</a>
+</section>
+
+
+
+<section class="top-3">
+
+  <main class="vip-section">
+    <div class="clock-wrap" id="clockWrap">
+      <div class="poker-clock" id="pokerClock"></div>
+
+      <div class="title-panel">
+        <button type="button" class="arrow left btn btn-outline-light" aria-label="Previous reward"></button>
+        <button type="button" class="arrow right btn btn-outline-light" aria-label="Next reward"></button>
+      </div>
+
+      <button type="button" class="spin-btn btn btn-warning btn-lg rounded-pill fw-bold text-dark" id="spinBtn" style="display:none">Spin Now</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+</section>
+
+<section class="video-section">
+
+  <video autoplay muted loop playsinline class="display-desktop">
+    <source src="https://cdn.betonline.ag/videos/beton/BOL260520_BetOn_RT26_Landing_page_1920x1080_DESKTOP.mp4" type="video/mp4">
+    </video>
+
+    <video autoplay muted loop playsinline class="display-mobile">
+      <source src="https://cdn.betonline.ag/videos/beton/BOL260520_BetOn_RT26_Landing_page_1920x1080_MOBILE.mp4" type="video/mp4">
+      </video>
+
+
+      <div class="video-overlay">
+
+        <h1 class="video-title-top">
+          SEE IT
+        </h1>
+
+        <h1 class="video-title-bottom">
+          BET ON<span style="color:#ee3536">.</span>
+        </h1>
+
+      </div>
+
+    </section>
+
+    <section 
+    class="tabs-section" 
+    id="tabsSection"
+    style="background-image:url('https://cdn-cms.betonline.ag/img/bg_sports_v2_f146390810.jpg');"
+    >
+
+    <div class="tabs-content">
+
+      <h2>The winning edge in </h2>
+
+      <div class="custom-tabs">
+
+        <!-- TAB 1 -->
+        <button 
+        class="tab-btn active"
+        data-tab="tab1"
+        data-bg-desktop="https://cdn-cms.betonline.ag/img/bg_sports_v2_f146390810.jpg"
+        data-bg-mobile="https://cdn-cms.betonline.ag/img/sports_tab_bg_mobile_cb41bacfe2.png"
+        >
+
+        <img 
+        src="https://cdn-cms.betonline.ag/img/sports_active_button_796b405e6d.png"
+        data-active="https://cdn-cms.betonline.ag/img/sports_active_button_796b405e6d.png"
+        data-inactive="https://cdn-cms.betonline.ag/img/sports_inactive_button_6ade1ffbf0.png"
+        alt=""
+        >
+
+      </button>
+
+      <!-- TAB 2 -->
+      <button 
+      class="tab-btn"
+      data-tab="tab2"
+      data-bg-desktop="https://cdn-cms.betonline.ag/img/bg_casino_v2_d8fcd7208f.jpg"
+      data-bg-mobile="https://cdn-cms.betonline.ag/img/casino_tab_bg_mobile_0e31348255.png"
+      >
+
+      <img 
+      src="https://cdn-cms.betonline.ag/img/casino_inactive_button_e9f6a7e407.png"
+      data-active="https://cdn-cms.betonline.ag/img/casino_active_button_8c71a4f797.png"
+      data-inactive="https://cdn-cms.betonline.ag/img/casino_inactive_button_e9f6a7e407.png"
+      alt=""
+      >
+
+    </button>
+
+    <!-- TAB 3 -->
+    <button 
+    class="tab-btn"
+    data-tab="tab3"
+    data-bg-desktop="https://cdn-cms.betonline.ag/img/bg_poker_v2_65eafeedfd.jpg"
+    data-bg-mobile="https://cdn-cms.betonline.ag/img/bg_poker_v2_65eafeedfd.jpg"
+    >
+
+    <img 
+    src="https://cdn-cms.betonline.ag/img/poker_inactive_button_17d74ba992.png"
+    data-active="https://cdn-cms.betonline.ag/img/poker_active_button_2afdbc76ae.png"
+    data-inactive="https://cdn-cms.betonline.ag/img/poker_inactive_button_17d74ba992.png"
+    alt=""
+    >
+
+  </button>
+
+</div>
+
+<div class="tab-content-wrapper">
+
+  <div class="tab-pane active" id="tab1">
+
+    <ul>
+      <li>Sharper odds than THE COMPETITION</li>
+      <li>More markets across more sports. World cup, NFL, NBA, MLB, NHL, UFC, GOLF, TENNIS and beyond</li>
+      <li>Live betting with real-time lines that move with the game</li>
+      <li>Same-game parlays, odds boosters and prop bets 365 days a year</li>
+      <li>No wagering limits so you can bet what you want, when you want</li>
+      <li>Winning bettors don't get limited or booted</li>
+    </ul>
+
+  </div>
+
+  <div class="tab-pane" id="tab2">
+
+    <ul>
+      <li>Fast withdrawals, no hoops so your money moves when you say so</li>
+      <li>Thousands of slots, live dealer games, table games, and poker</li>
+      <li>Crypto-friendly</li>
+      <li>Real rewards that actually pay out, not loyalty points that go nowhere</li>
+      <li>No arbitrary betting limits on the floor</li>
+      <li>High-quality games from leading providers</li>
+      <li>Play from anywhere</li>
+    </ul>
+
+  </div>
+
+  <div class="tab-pane" id="tab3">
+
+    <ul>
+
+      <li>Play on web browser, desktop or mobile apps</li>
+      <li>Seamless access to cash games, tournaments, and more</li>
+      <li>Hold&rsquo;em, Omaha, and a wide range of action for every style of player</li>
+      <li>Massive tournament schedule</li>
+      <li>Real-time table insights</li>
+      <li>Up to 30% in weekly rakeback</li>
+      <li>Built-in casino games</li>
+    </ul>
+
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="full-banner">
+  <img src="https://cdn-cms.betonline.ag/img/multiproduct_banner_3_d5c38945c3.jpg" class="display-desktop" alt="">
+  <img src="https://cdn-cms.betonline.ag/img/multiproduct_banner_mobile2_d77ea3c0d1.png" class="display-mobile" alt="">
+</section>
+
+
+<script>
+
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const tabsSection = document.getElementById('tabsSection');
+
+
+
+  function getBackground(button){
+
+    const isMobile = window.innerWidth < 768;
+
+    return isMobile
+    ? button.dataset.bgMobile
+    : button.dataset.bgDesktop;
+
+  }
+
+  // =========================================
+  //  tab
+  // =========================================
+
+  tabButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      // Remove active
+      tabButtons.forEach(btn => {
+
+        btn.classList.remove('active');
+
+        const img = btn.querySelector('img');
+        img.src = img.dataset.inactive;
+
+      });
+
+      // Hide panes
+      tabPanes.forEach(pane => {
+        pane.classList.remove('active');
+      });
+
+      // Active current button
+      button.classList.add('active');
+
+      const currentImg = button.querySelector('img');
+      currentImg.src = currentImg.dataset.active;
+
+      // Show current tab
+      const tabId = button.dataset.tab;
+
+      document
+      .getElementById(tabId)
+      .classList.add('active');
+
+      // Change background
+      const bg = getBackground(button);
+
+      tabsSection.style.backgroundImage = `url('${bg}')`;
+
+    });
+
+  });
+
+  // =========================================
+  //BG RESIZE
+  // =========================================
+
+  window.addEventListener('resize', () => {
+
+    const activeBtn = document.querySelector('.tab-btn.active');
+
+    if(activeBtn){
+
+      const bg = getBackground(activeBtn);
+
+      tabsSection.style.backgroundImage = `url('${bg}')`;
+
+    }
+
+  });
+
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const banners = document.querySelectorAll(".track-banner");
+
+    banners.forEach(function(banner, index){
+
+      banner.addEventListener("click", function(){
+
+        const eventData = {
+
+          event: 'main_banner_interaction',
+
+          interaction_type: 'click',
+
+          element_type: 'main_banner',
+
+          element_subtype: 'landing page',
+
+          element_name: banner.dataset.name,
+
+          element_content: banner.dataset.content,
+
+          element_id: banner.id,
+
+          element_position: {
+            index: index + 1,
+            total: banners.length
+          },
+
+          element_text: null,
+
+          element_redirect_url: banner.href
+
+        };
+
+        window.dataLayer.push(eventData);
+
+        console.log('DataLayer Event:', eventData);
+
+      });
+
+    });
+
+  });
+</script>
+

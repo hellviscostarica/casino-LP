@@ -1,0 +1,500 @@
+ :root {
+      --bg: #282828;
+      --bg-2: #282828;
+      --panel: #282828;
+      --gold: #d9b15b;
+      --gold-strong: #f4d88a;
+      --gold-soft: rgba(217, 177, 91, 0.20);
+      --text: #f3efe8;
+      --muted: rgba(255,255,255,0.62);
+      --card: #f6f4ef;
+      --shadow: 282828;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      background: #282828;
+      color: var(--text);
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+
+    .body-top-3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+     padding-top:10%;
+      /*background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);*/
+    }
+
+    /* Main stage and base layout */
+    .vip-section {
+    position: relative;
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+    background: transparent;
+
+    }
+
+    .bottom-black-band {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 32%;
+      background: #282828;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .clock-wrap {
+    width: 100%;
+    height: 52vh;
+    min-height: 280px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+  }
+
+    /* Circular pointer and card wheel — desktop shows only the top half */
+    .poker-clock {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 104vh;
+      height: 104vh;
+      max-width: none;
+      max-height: none;
+      margin: 0 0 0 -52vh;
+      margin-top: -52vh;
+      cursor: grab;
+      user-select: none;
+      overflow: visible;
+      background: transparent;
+      transform-origin: center center;
+      z-index: 3;
+    }
+
+    .poker-clock:active { cursor: grabbing; }
+
+    .poker-card-clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      width: clamp(62px, 12vw, 140px);
+      height: clamp(92px, 18vw, 200px);
+      margin-left: calc(clamp(62px, 12vw, 140px) / -2);
+      margin-top: calc(clamp(92px, 18vw, 200px) / -2);
+      border-radius: 12px;
+      background: 282828;
+      border: 1px solid rgba(212, 175, 55, 0.8);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 0 0 4px rgba(212, 175, 55, 0.12), 0 14px 28px rgba(0,0,0,0.42);
+      overflow: hidden;
+      transition: filter 0.25s ease, transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 2;
+    }
+
+    .poker-card-clock:hover {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    .poker-card-clock .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0.7rem 0.55rem;
+      text-align: center;
+    }
+
+    .poker-card-clock .card-title {
+      color: #ffffff;
+      font-size: clamp(0.52rem, 0.9vw, 0.96rem);
+      font-weight: 700;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      letter-spacing: 0.08rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      transition: color 0.25s ease;
+    }
+
+    .poker-card-clock .card-description {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0.25rem;
+      font-size: clamp(0.32rem, 0.56vw, 0.62rem);
+      line-height: 1.2;
+      letter-spacing: 0.04rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      transition: max-height 0.25s ease, opacity 0.25s ease, color 0.25s ease;
+    }
+
+    .poker-card-clock:hover .card-title {
+      color: #000000;
+    }
+
+    .poker-card-clock:hover .card-description {
+      max-height: 2.5rem;
+      opacity: 1;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .poker-card-clock.active {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.22));
+      z-index: 19;
+    }
+
+    .poker-card-clock.active .card-title {
+      color: #000000;
+    }
+
+    .poker-card-clock.active .card-description {
+      max-height: 2.5rem;
+      opacity: 1;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .poker-card-clock.active,
+    .poker-card-clock:hover {
+      border: 1px solid rgba(0, 0, 0, 0.8);
+    }
+
+    .poker-card-clock.active::after,
+    .poker-card-clock:hover::after {
+      display: none;
+    }
+
+    .card-label {
+      position: absolute;
+      left: 50%;
+      bottom: -28px;
+      transform: translateX(-50%);
+      font-size: clamp(0.45rem, 0.85vw, 0.8rem);
+      font-weight: 700;
+      letter-spacing: 0.08rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: rgba(244,216,138,0.88);
+    }
+
+    .poker-card-clock.active .card-label {
+      color: var(--text);
+      font-size: clamp(0.52rem, 0.95vw, 0.85rem);
+    }
+
+    /* Navigation arrows above the clock */
+    .title-panel {
+      position: absolute;
+      left: 50%;
+      width: min(90vw, 740px);
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 42%;
+    }
+
+    .arrow {
+      position: relative;
+      width: clamp(46px, 5.8vw, 70px);
+      height: clamp(46px, 5.8vw, 70px);
+      border-radius: 30%;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+      opacity: 0.95;
+      box-shadow: none;
+    }
+
+    .arrow:hover,
+    .arrow:focus-visible {
+      transform: scale(1.04);
+      border-color: rgba(255,255,255,1);
+      opacity: 1;
+      box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.15);
+    }
+
+    .arrow::before {
+      content: "";
+      width: clamp(11px, 2vw, 18px);
+      height: clamp(11px, 2vw, 18px);
+      border-top: 3px solid rgba(255,255,255,0.98);
+      border-right: 3px solid rgba(255,255,255,0.98);
+    }
+
+    .arrow.left::before {
+      transform: rotate(-135deg);
+      margin-left: 6px;
+    }
+
+    .arrow.right::before {
+      transform: rotate(45deg);
+      margin-right: 6px;
+    }
+
+    .spin-btn {
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      border: none;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #000;
+      padding: 0.9rem 2.8rem;
+      font-size: clamp(0.8rem, 1.3vw, 1.4rem);
+      font-weight: 900;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 26px rgba(185,255,46,0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 25;
+    }
+
+    .spin-btn:hover {
+      transform: translateX(-50%) scale(1.04);
+      box-shadow: 0 0 35px rgba(185,255,46,0.7);
+    }
+
+    /* Bootstrap 5 breakpoints */
+    @media (min-width: 2571px) and (max-width: 3500px) {
+      .title-panel {
+        margin-top: 12%;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .clock-wrap {
+        height: 71vh;
+      }
+
+      .poker-clock {
+        width: 116vh;
+        height: 116vh;
+        margin-left: -58vh;
+        margin-top: -58vh;
+      }
+    }
+    @media (min-width: 1399.98px) and (max-width: 2570px) {
+      .title-panel {
+        margin-top: 15%;
+      }
+      .vip-section {
+        height: 65%;
+      }
+    }
+
+    @media (min-width: 1399.98px) and (max-width: 1660px) {
+      .title-panel {
+        margin-top: 23%;
+      }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1399.98px) {
+      .clock-wrap {
+        height: 54vh;
+      }
+
+      .poker-clock {
+        width: 108vh;
+        height: 108vh;
+        margin-left: -54vh;
+        margin-top: -54vh;
+      }
+      .title-panel {
+        margin-top: 20%;
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      .clock-wrap {
+        height: 50vh;
+      }
+      .title-panel {
+        margin-top: 35%;
+      }
+
+      .poker-clock {
+        width: 100vh;
+        height: 100vh;
+        margin-left: -50vh;
+        margin-top: -50vh;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+   .title-panel {
+    margin-top: 38%;
+       }
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .clock-wrap {
+        height: 46vh;
+        min-height: 240px;
+      }
+
+      .poker-clock {
+        width: 92vh;
+        height: 92vh;
+        margin-left: -46vh;
+        margin-top: -46vh;
+      }
+    }
+
+    /* Mobile / tablet: show only the active card at the top */
+    @media (max-width: 767.98px) {
+      .body-top-3 {
+        padding-top: clamp(1.5rem, 5vw, 3rem);
+        align-items: flex-start;
+      }
+
+      .clock-wrap {
+        height: auto;
+        min-height: clamp(200px, 52vw, 426px);
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        gap: clamp(0.75rem, 1vw, 6.25rem);
+        margin-top: 6%;
+      }
+
+     .poker-clock {
+        position: relative;
+        left: auto;
+        top: auto;
+        order: 1;
+        width: min(92vw, 230px) !important;
+        height: clamp(139px, 82vw, 553px) !important;
+        margin: 0 !important;
+        overflow: visible;
+    }
+
+      /* Hide every card except the one at the top */
+      .poker-card-clock:not(.active) {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .poker-card-clock.active {
+        z-index: 20;
+      }
+
+      .poker-card-clock {
+        width: clamp(72px, 22vw, 120px);
+        height: clamp(108px, 33vw, 180px);
+        margin-left: calc(clamp(72px, 22vw, 120px) / -2);
+        margin-top: calc(clamp(108px, 33vw, 180px) / -2);
+      }
+
+      .poker-card-clock .card-title {
+        font-size: clamp(0.58rem, 2.8vw, 0.82rem);
+      }
+
+      .poker-card-clock .card-description {
+        font-size: clamp(0.42rem, 2vw, 0.58rem);
+      }
+
+      .title-panel {
+        position: relative;
+        left: auto;
+        width: 100%;
+        transform: none;
+        margin-top: 0;
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(0.75rem, 4vw, 1.25rem);
+        margin-top: -30%;
+      }
+
+      .arrow {
+        width: clamp(40px, 11vw, 54px);
+        height: clamp(40px, 11vw, 54px);
+      }
+    }
+
+    /* Extra-small devices */
+    @media (max-width: 575.98px) {
+      .clock-wrap {
+        min-height: clamp(180px, 58vw, 260px);
+      }
+      .poker-clock {
+        width: min(96vw, 320px) !important;
+        height: clamp(133px, 73vw, 429px) !important;
+        min-height: 585px;
+
+      }
+      .clock-wrap {
+        height: auto;
+        min-height: clamp(200px, 52vw, 426px);
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        gap: clamp(-0.25rem, 0vw, 11.25rem);
+        margin-top: 0%;
+     }  
+         .title-panel {
+        margin-top: -50%;
+         }
+  }
+    @media (max-width: 320px) {
+      .poker-card-clock {
+        width: clamp(64px, 24vw, 88px);
+        height: clamp(96px, 36vw, 132px);
+        margin-left: calc(clamp(64px, 24vw, 88px) / -2);
+        margin-top: calc(clamp(96px, 36vw, 132px) / -2);
+      }
+     html, body {
+    height: 93%;
+    }
+    .title-panel {
+        margin-top: -100%;
+  }
+}
+   
