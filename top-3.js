@@ -31,7 +31,18 @@
         { title: 'Priority Support', description: 'Fast assistance' },
         { title: 'Exclusive Events', description: 'Private access' },
         { title: 'Royal Suite', description: 'Luxury perks' },
-
+        { title: 'Crypto Bonuses', description: 'Instant deposits' },
+        { title: 'Cashback Rewards', description: 'Weekly returns' },
+        { title: 'High Roller Club', description: 'Elite perks' },
+        { title: 'Live Dealer Perks', description: 'Exclusive tables' },
+        { title: 'Birthday Gifts', description: 'Special rewards' },
+        { title: 'Reload Bonuses', description: 'Extra funds' },
+        { title: 'Tournament Pass', description: 'Free entry' },
+        { title: 'Express Cashout', description: 'Zero waiting' },
+        { title: 'Daily Free Spins', description: 'Spin every day' },
+        { title: 'Level Up Rewards', description: 'Tier upgrades' },
+        { title: 'Loss Back Bonus', description: 'Safety net' },
+        { title: 'Personal Manager', description: '24/7 VIP service' }
       ];
 
       const cardCount = cards.length;

@@ -58,8 +58,8 @@
 
     .clock-wrap {
     width: 100%;
-    height: 52vh;
-    min-height: 280px;
+    height: 65vh;
+    min-height: 480px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -76,13 +76,13 @@
     .poker-clock {
       position: absolute;
       left: 50%;
-      top: 100%;
-      width: 104vh;
-      height: 104vh;
+      top: 120px;
+      width: 280vh;
+      height: 280vh;
       max-width: none;
       max-height: none;
-      margin: 0 0 0 -52vh;
-      margin-top: -52vh;
+      margin: 0 0 0 -140vh;
+      margin-top: 0;
       cursor: grab;
       user-select: none;
       overflow: visible;
@@ -212,6 +212,7 @@
     .title-panel {
       position: absolute;
       left: 50%;
+      top: 350px;
       width: min(90vw, 740px);
       transform: translateX(-50%);
       z-index: 20;
@@ -219,7 +220,7 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-top: 42%;
+      margin-top: 0;
     }
 
     .arrow {
@@ -293,25 +294,28 @@
     /* Bootstrap 5 breakpoints */
     @media (min-width: 2571px) and (max-width: 3500px) {
       .title-panel {
-        margin-top: 12%;
+        top: 370px;
+        margin-top: 0;
       }
     }
 
     @media (min-width: 1400px) {
       .clock-wrap {
-        height: 71vh;
+        height: 60vh;
       }
 
       .poker-clock {
-        width: 116vh;
-        height: 116vh;
-        margin-left: -58vh;
-        margin-top: -58vh;
+        width: 320vh;
+        height: 320vh;
+        margin-left: -160vh;
+        margin-top: 0;
+        top: 120px;
       }
     }
     @media (min-width: 1399.98px) and (max-width: 2570px) {
       .title-panel {
-        margin-top: 15%;
+        top: 360px;
+        margin-top: 0;
       }
       .vip-section {
         height: 65%;
@@ -320,45 +324,45 @@
 
     @media (min-width: 1399.98px) and (max-width: 1660px) {
       .title-panel {
-        margin-top: 23%;
+        top: 350px;
+        margin-top: 0;
       }
     }
 
     @media (min-width: 1200px) and (max-width: 1399.98px) {
       .clock-wrap {
-        height: 67vh;
+        height: 60vh;
       }
 
       .poker-clock {
-        width: 108vh;
-        height: 108vh;
-        margin-left: -54vh;
-        margin-top: -54vh;
+        width: 280vh;
+        height: 280vh;
+        margin-left: -140vh;
+        margin-top: 0;
+        top: 120px;
       }
       .title-panel {
-        margin-top: 20%;
+        top: 340px;
+        margin-top: 0;
       }
     }
 
     @media (min-width: 992px) and (max-width: 1199.98px) {
       .clock-wrap {
-        height: 59vh;
+        height: 58vh;
       }
       .title-panel {
-        margin-top: 35%;
+        top: 320px;
+        margin-top: 0;
       }
 
       .poker-clock {
-        width: 100vh;
-        height: 100vh;
-        margin-left: -50vh;
-        margin-top: -50vh;
+        width: 240vh;
+        height: 240vh;
+        margin-left: -120vh;
+        margin-top: 0;
+        top: 110px;
       }
-    }
-    @media (min-width: 768px) and (max-width: 991.98px) {
-   .title-panel {
-    margin-top: 38%;
-       }
     }
     @media (min-width: 768px) and (max-width: 991.98px) {
       .clock-wrap {
@@ -367,15 +371,20 @@
       }
 
       .poker-clock {
-        width: 92vh;
-        height: 92vh;
-        margin-left: -46vh;
-        margin-top: -46vh;
+        width: 200vh;
+        height: 200vh;
+        margin-left: -100vh;
+        margin-top: 0;
+        top: 100px;
       }
-    html, body {
-    min-height: 89%;
-     }
-  }
+      .title-panel {
+        top: 290px;
+        margin-top: 0;
+      }
+      html, body {
+        min-height: 89%;
+      }
+    }
 
     /* Mobile / tablet: show only the active card at the top */
     @media (max-width: 767.98px) {
@@ -442,15 +451,15 @@
       .title-panel {
         position: relative;
         left: auto;
+        top: auto;
         width: 100%;
         transform: none;
-        margin-top: 0;
         order: 2;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: clamp(0.75rem, 4vw, 1.25rem);
-        margin-top: -30%;
+        margin-top: -38%;
       }
 
       .arrow {
